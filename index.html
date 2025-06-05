@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pampa Andina - Pedido</title>
+  <style>
+    body {
+      font-family: 'Georgia', serif;
+      background-image: url('freepik__35mm-film-photography-pampa-andina-restaurant-inte__84399.jpeg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      margin: 0;
+      padding: 0;
+      color: #fff;
+    }
+    .container {
+      background-color: rgba(0, 0, 0, 0.65);
+      padding: 2em;
+      max-width: 600px;
+      margin: 3em auto;
+      border-radius: 12px;
+    }
+    h1 {
+      text-align: center;
+      font-size: 2em;
+      margin-bottom: 1em;
+      color: #ffdd99;
+    }
+    h2 {
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 0.3em;
+      margin-top: 1.5em;
+      color: #fdd;
+    }
+    label {
+      display: block;
+      margin: 0.5em 0;
+    }
+    button {
+      display: block;
+      margin: 2em auto;
+      padding: 1em 2em;
+      font-size: 1em;
+      background-color: #e09e4f;
+      color: #000;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    #total {
+      text-align: center;
+      font-size: 1.5em;
+      margin-top: 1em;
+      color: #aaffcc;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Pampa Andina</h1>
+
+    <h2>Entradas</h2>
+    <label><input type="checkbox" value="7000"> Empanada de cordero patagónico ($7000)</label>
+    <label><input type="checkbox" value="8200"> Trucha curada con sal y eneldo ($8200)</label>
+    <label><input type="checkbox" value="9950"> Provoleta de cabra con hierbas ($9950)</label>
+    <label><input type="checkbox" value="7900"> Timbal de Quinoa, calabaza y nuez ($7900)</label>
+
+    <h2>Principales</h2>
+    <label><input type="checkbox" value="24500"> Bife de chorizo con papas andinas ($24500)</label>
+    <label><input type="checkbox" value="23950"> Estofado de cordero al malbec ($23950)</label>
+    <label><input type="checkbox" value="19550"> Trucha arcoiris con risotto de quinoa ($19550)</label>
+    <label><input type="checkbox" value="17200"> Sorrentinos de humita ($17200)</label>
+
+    <h2>Postres</h2>
+    <label><input type="checkbox" value="10200"> Texturas de dulce de leche ($10200)</label>
+    <label><input type="checkbox" value="9800"> Tarta tibia de membrillo y nueces ($9800)</label>
+    <label><input type="checkbox" value="9600"> Helado de algarroba ($9600)</label>
+    <label><input type="checkbox" value="8700"> Peras al malbec ($8700)</label>
+
+    <h2>Bebidas</h2>
+    <label><input type="checkbox" value="8500"> Jugo de frutos del bosque ($8500)</label>
+    <label><input type="checkbox" value="9000"> Cóctel patagónico ($9000)</label>
+    <label><input type="checkbox" value="7800"> Mate Spritz ($7800)</label>
+    <label><input type="checkbox" value="7800"> Chicha andina ($7800)</label>
+    <label><input type="checkbox" value="6900"> Té frío de jarilla ($6900)</label>
+
+    <button onclick="calcularTotal()">Realizar pedido</button>
+    <div id="total"></div>
+  </div>
+
+  <script>
+    function calcularTotal() {
+      const checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+      let total = 0;
+      checkboxes.forEach(cb => {
+        total += parseInt(cb.value);
+      });
+      document.getElementById('total').innerText = "Total del pedido: $" + total;
+    }
+  </script>
+</body>
+</html>
